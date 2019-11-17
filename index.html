@@ -64,6 +64,11 @@
         var answer = snapshot.val().answer;
         tupleObj[question] = answer;
     });
+    firebase.database().ref('questions/' + 5).on('value', function(snapshot) {
+        var question = snapshot.val().question;
+        var answer = snapshot.val().answer;
+        tupleObj[question] = answer;
+    });
 
     var question1 = "";
     var question2 = "";
@@ -164,12 +169,12 @@ window.onclick = function(event) {
 </head>
 <body>
 
-        <div id="myModal" class="modal">
+        <div id="myModal" class="modal" style="z-index: 999">
 
                 <!-- Modal content -->
                 <div class="modal-content">
                   <span class="close">&times;</span>
-                  <p>Your responses are not quite right!</p>
+                  <p style="text-align: center">Your responses are not quite right!</p>
                 </div>
               
         </div>
@@ -179,7 +184,7 @@ window.onclick = function(event) {
 			<div class="wrap-login100">
 				<div class="login100-form-title" style="background-image: url(images/bg-01.jpg);">
 					<span class="login100-form-title-1">
-						Answer those questions to access super secret file!
+						Answer those questions to download super secret file!
 					</span>
 				</div>
 
@@ -201,7 +206,7 @@ window.onclick = function(event) {
                     </div>
 					<div class="container-login100-form-btn">
                             <div id="myBtn" class="login100-form-btn" style="cursor: pointer;">
-                                     ACCESS THE FILE! 
+                                     DOWNLOAD THE FILE! 
                                   </div>
                 
 					</div>
@@ -222,22 +227,10 @@ window.onclick = function(event) {
             // When the user clicks the button, open the modal 
             btn.onclick = function() {
                 if (question1 == tupleObj["question1"] && question2 == tupleObj["question2"] && question3 == tupleObj["question3"] && question4 == tupleObj["question4"] && question5 == tupleObj["question5"] ) {
-            console.log("success");
+            window.location.replace(tupleObj["website"]);
         } else {
             modal.style.display = "block";
-            console.log("fail");
         }
-        console.log(question1);
-        console.log(question2);
-        console.log(question3);
-        console.log(question4);
-        console.log(question5);
-
-        console.log(tupleObj["question1"]);
-        console.log(tupleObj["question2"]);
-        console.log(tupleObj["question3"]);
-        console.log(tupleObj["question4"]);
-        console.log(tupleObj["question5"]);
 
             }
             
