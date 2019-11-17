@@ -226,7 +226,7 @@ window.onclick = function(event) {
             
             // When the user clicks the button, open the modal 
             btn.onclick = function() {
-                if (question1 == tupleObj["question1"] && question2 == tupleObj["question2"] && question3 == tupleObj["question3"] && question4 == tupleObj["question4"] && question5 == tupleObj["question5"] ) {
+                if (question1.toLowerCase() == tupleObj["question1"] && question2.toLowerCase() == tupleObj["question2"] && question3.toLowerCase() == tupleObj["question3"] && question4.toLowerCase() == tupleObj["question4"] && question5.toLowerCase() == tupleObj["question5"] ) {
             window.location.replace(tupleObj["website"]);
         } else {
             modal.style.display = "block";
