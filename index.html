@@ -44,12 +44,40 @@
         var answer = snapshot.val().answer;
         tupleObj[question] = answer;
     });
+    firebase.database().ref('questions/' + 1).on('value', function(snapshot) {
+        var question = snapshot.val().question;
+        var answer = snapshot.val().answer;
+        tupleObj[question] = answer;
+    });
+    firebase.database().ref('questions/' + 2).on('value', function(snapshot) {
+        var question = snapshot.val().question;
+        var answer = snapshot.val().answer;
+        tupleObj[question] = answer;
+    });
+    firebase.database().ref('questions/' + 3).on('value', function(snapshot) {
+        var question = snapshot.val().question;
+        var answer = snapshot.val().answer;
+        tupleObj[question] = answer;
+    });
+    firebase.database().ref('questions/' + 4).on('value', function(snapshot) {
+        var question = snapshot.val().question;
+        var answer = snapshot.val().answer;
+        tupleObj[question] = answer;
+    });
 
     var question1 = "";
     var question2 = "";
+    var question3 = "";
+    var question4 = "";
+    var question5 = "";
+
     function test2() {
         question1 = document.getElementById("question1").value;
         question2 = document.getElementById("question2").value;
+        question3 = document.getElementById("question3").value;
+        question4 = document.getElementById("question4").value;
+        question5 = document.getElementById("question5").value;
+
     }
 
     // When the user clicks on <span> (x), close the modal
@@ -157,18 +185,20 @@ window.onclick = function(event) {
 
 				<form class="login100-form validate-form" style="display:table;">
 					<div class="wrap-input100 validate-input m-b-70" data-validate="You gotta write something u poo!">
-						<input id="question1" class="input100" type="text" name="username" placeholder="Where was our first date? (two words!)" onchange="test2()">
+						<input id="question1" class="input100" type="text" name="username" placeholder="Which restaurant was our first date? (two words!)" onchange="test2()">
 					</div>
 					<div class="wrap-input100 validate-input m-b-70" data-validate = "You gotta write something u poo!">
-						<input id="question2" class="input100" type="text" name="pass" placeholder="What's my favourite dessert?" onchange="test2()">
+						<input id="question2" class="input100" type="text" name="pass" placeholder="What's my favourite dessert? (two words!!)" onchange="test2()">
 					</div>
                     <div class="wrap-input100 validate-input m-b-70" data-validate = "You gotta write something u poo!">
-                            <input id="question3" class="input100" type="text" name="pass" placeholder="What restaurant did we go for our first date! (two words!)" onchange="test2()">
+                            <input id="question3" class="input100" type="text" name="pass" placeholder="What is your nickname! (hint: check website url)" onchange="test2()">
                     </div>
                     <div class="wrap-input100 validate-input m-b-70" data-validate = "You gotta write something u poo!">
-                            <input id="question3" class="input100" type="text" name="pass" placeholder="What restaurant did we go for our first date! (two words!)" onchange="test2()">
+                            <input id="question4" class="input100" type="text" name="pass" placeholder="What is my nickname! (Who loves you soo sooo much!)" onchange="test2()">
                     </div>
-
+                    <div class="wrap-input100 validate-input m-b-70" data-validate = "You gotta write something u poo!">
+                            <input id="question5" class="input100" type="text" name="pass" placeholder="Where was our first vacation!" onchange="test2()">
+                    </div>
 					<div class="container-login100-form-btn">
                             <div id="myBtn" class="login100-form-btn" style="cursor: pointer;">
                                      DOWNLOAD THE FILE! 
@@ -191,12 +221,24 @@ window.onclick = function(event) {
             
             // When the user clicks the button, open the modal 
             btn.onclick = function() {
-                if (question1 == tupleObj["question1"] && question2 == tupleObj["question2"]) {
+                if (question1 == tupleObj["question1"] && question2 == tupleObj["question2"] && question3 == tupleObj["question3"] && question4 == tupleObj["question4"] && question5 == tupleObj["question5"] ) {
             console.log("success");
         } else {
+            modal.style.display = "block";
             console.log("fail");
         }
-        modal.style.display = "block";
+        console.log(question1);
+        console.log(question2);
+        console.log(question3);
+        console.log(question4);
+        console.log(question5);
+
+        console.log(tupleObj["question1"]);
+        console.log(tupleObj["question2"]);
+        console.log(tupleObj["question3"]);
+        console.log(tupleObj["question4"]);
+        console.log(tupleObj["question5"]);
+
             }
             
             // When the user clicks on <span> (x), close the modal
